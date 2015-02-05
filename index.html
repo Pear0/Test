@@ -2,13 +2,35 @@
   <head>
     <meta charset="utf-8">
     <title>A Title</title>
+    <script>
+      function onLoad() {
+        var cnv = document.getElementById("cnv");
+        var ctx = cnv.getContext("2d");
+        var rot = 0;
+        function loop() {
+          var w = cnv.width;
+          var h = cnv.height;
+          ctx.clearRect(0, 0, w, h);
+          
+          ctx.beginDraw();
+          ctx.arc(w / 2, h / 2, 20, rot, rot + 1.5 * Math.PI);
+          ctx.stroke();
+          
+          rot += 0.05;
+          
+        }
+        setInterval(loop, 50);
+      }
+      
+    </script>
   </head>
-  <body>
+  <body onload="onLoad()">
   TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
   <b>Stuff!</b>
   From Master!
   <code>Another Edit</code>
   <!--<h1>Large Text</h1>-->
   <h5>H5</h5>
+  <canvas id="cnv" width="800px" height="600px"></canvas>
   </body>
 </html>
